@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JTIIK Recommender</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <a href="#home"><img src="https://i.ibb.co/XbPMKyC/logo-jtiik.png" alt="logo jtiik"></a>
+        </div>
+        <div class="header-right">
+            <a href="https://drive.google.com/file/d/1IcmIhmpyzNecrDoBclaSL7AEuVbKJ66J/view?usp=share_link" class="data-btn" target="_blank">Data</a>
+        </div>
+    </header>
+
+    <main>
+        <article class="home" id="home">
+            <div class="container">
+                <h1>JTIIK Recommender</h1>
+                <form action="/recom" method="post" class="form">
+                    <input type="text" class="input" name="title" placeholder="Article's Title" required="required"/>
+                    <button type="submit" class="recom-btn">
+                    Recommend
+                    </button>
+                </form> 
+                <h2>Recommendation</h2>
+                <br>
+                {% for table in tables %}
+                    {{titles[loop.index]}}
+                    {{ table|safe }}
+                {% endfor %}
+                <br>
+            </div>
+        </article>
+
+        <footer>
+            <a href="https://github.com/amiragn" class="footer" target="_blank">&copy;amiragn</a>
+        </footer>
+
+    </body>
+    </html>
